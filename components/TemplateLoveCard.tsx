@@ -51,7 +51,7 @@ export function TemplateLoveCard({ surprise }: Props) {
             </p>
           </div>
 
-          {surprise.photoDataUrl && (
+          {surprise.photo && (
             <motion.div
               className="mb-4 overflow-hidden rounded-2xl border border-white/15"
               initial={{ opacity: 0, scale: 0.95 }}
@@ -60,7 +60,7 @@ export function TemplateLoveCard({ surprise }: Props) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={surprise.photoDataUrl}
+                src={surprise.photo}
                 alt="Love memory"
                 className="h-56 w-full object-cover"
               />
@@ -76,7 +76,7 @@ export function TemplateLoveCard({ surprise }: Props) {
             {surprise.message}
           </motion.p>
 
-          {surprise.musicDataUrl && (
+          {surprise.music && (
             <motion.audio
               controls
               autoPlay
@@ -85,7 +85,7 @@ export function TemplateLoveCard({ surprise }: Props) {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <source src={surprise.musicDataUrl} />
+              <source src={surprise.music} />
             </motion.audio>
           )}
 

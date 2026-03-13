@@ -91,7 +91,7 @@ export function TemplateCountdown({ surprise }: Props) {
             {surprise.message}
           </motion.p>
 
-          {surprise.photoDataUrl && (
+          {surprise.photo &&  (
             <motion.div
               className="mt-4 grid grid-cols-2 gap-2"
               initial={{ opacity: 0, y: 10 }}
@@ -99,33 +99,33 @@ export function TemplateCountdown({ surprise }: Props) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={surprise.photoDataUrl}
+                src={surprise.photo}
                 alt="Gallery photo"
                 className="col-span-2 h-40 w-full rounded-2xl object-cover"
               />
               {/* simple mirrored gallery */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={surprise.photoDataUrl}
+                src={surprise.photo}
                 alt="Gallery photo"
                 className="h-20 w-full rounded-2xl object-cover opacity-70"
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={surprise.photoDataUrl}
+                src={surprise.photo}
                 alt="Gallery photo"
                 className="h-20 w-full rounded-2xl object-cover opacity-50"
               />
             </motion.div>
           )}
 
-          {surprise.musicDataUrl && (
+          {surprise. music && (
             <audio
               controls
               autoPlay
               className="mt-4 w-full rounded-full bg-black/40"
             >
-              <source src={surprise.musicDataUrl} />
+              <source src={surprise. music} />
             </audio>
           )}
 

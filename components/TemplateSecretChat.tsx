@@ -133,7 +133,7 @@ export function TemplateSecretChat({ surprise }: Props) {
               </p>
               <p className="mb-3 text-soft/90">{surprise.message}</p>
 
-              {surprise.photoDataUrl && (
+              {surprise.photo && (
                 <motion.div
                   className="mb-3 overflow-hidden rounded-2xl border border-white/15"
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -141,20 +141,20 @@ export function TemplateSecretChat({ surprise }: Props) {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={surprise.photoDataUrl}
+                    src={surprise.photo}
                     alt="Love memory"
                     className="max-h-56 w-full object-cover"
                   />
                 </motion.div>
               )}
 
-              {surprise.musicDataUrl && (
+              {surprise.music && (
                 <audio
                   controls
                   autoPlay
                   className="mt-2 w-full rounded-full bg-black/40"
                 >
-                  <source src={surprise.musicDataUrl} />
+                  <source src={surprise.music} />
                 </audio>
               )}
 
