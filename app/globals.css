@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-background text-white min-h-screen;
+}
+
+body {
+  @apply antialiased;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.glass-card {
+  @apply bg-card/70 border border-white/10 backdrop-blur-xl rounded-3xl shadow-xl shadow-black/40;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide text-white bg-gradient-to-r from-primary to-glow shadow-glow hover:shadow-[0_0_60px_rgba(255,46,136,0.7)] transition-shadow duration-300;
+}
+
+.pink-glow-text {
+  text-shadow: 0 0 20px rgba(255, 95, 168, 0.9);
+}
+
+.heart-particle {
+  background: radial-gradient(circle at 30% 30%, #fff, #ff5fa8);
+  filter: blur(0.5px);
+}
+
