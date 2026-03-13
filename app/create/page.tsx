@@ -8,6 +8,7 @@ import { PrimaryButton } from "@/components/PrimaryButton";
 import { useLanguage } from "@/components/LanguageContext";
 import type { TemplateType } from "@/lib/storage";
 import { generateId } from "@/lib/generateId";
+import { QRGenerator } from "@/components/QRGenerator";
 
 type TemplateOption = {
   id: TemplateType;

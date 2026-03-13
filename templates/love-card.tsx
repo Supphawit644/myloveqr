@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import type { SurprisePayload } from "@/lib/surprises";
 import { HeartParticles } from "@/components/HeartParticles";
 import { PrimaryButton } from "@/components/PrimaryButton";
+import confetti from "canvas-confetti";
+
 
 type Props = {
   surprise: SurprisePayload;
@@ -13,6 +15,18 @@ type Props = {
 // Love Card template – romantic tap-to-open card with hearts & music
 export default function LoveCardTemplate({ surprise }: Props) {
   const [opened, setOpened] = useState(false);
+
+  useEffect(() => {
+    if (opened) {
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 },
+        shapes: ["heart"] as any,
+        colors: ["#ff4d8d", "#ff7eb3", "#ffb3d9"]
+      });
+    }
+  }, [opened]);
 
   return (
     <div className="relative flex min-h-[70vh] flex-col items-center justify-center">

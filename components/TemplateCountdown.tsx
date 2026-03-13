@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SurprisePayload } from "@/lib/surprises";
 import { PrimaryButton } from "./PrimaryButton";
 import { HeartParticles } from "./HeartParticles";
+import { translations } from "@/lib/translations";
 
 type Props = {
   surprise: SurprisePayload;
@@ -25,6 +26,13 @@ export function TemplateCountdown({ surprise }: Props) {
     return () => clearTimeout(timer);
   }, [running, seconds, finished]);
 
+  const lang =
+  typeof window !== "undefined"
+    ? localStorage.getItem("lang") || "en"
+    : "en";
+
+  const t = translations[lang as "en" | "th"];
+
   return (
     <div className="relative flex min-h-[75vh] flex-col items-center justify-center overflow-hidden">
       <HeartParticles />
@@ -38,13 +46,13 @@ export function TemplateCountdown({ surprise }: Props) {
           animate={{ opacity: 1, y: 0 }}
         >
           <span className="text-xs uppercase tracking-[0.22em] text-soft/70">
-            Countdown surprise
+          {t.countdownTitle}
           </span>
           <p className="text-sm text-soft/80">
-            When you&apos;re ready, tap to begin the countdown to your surprise.
+          {t.countdownDesc}
           </p>
           <span className="mt-2 rounded-full bg-white/10 px-3 py-1 text-xs text-soft/70">
-            Start countdown
+          {t.startCountdown}
           </span>
         </motion.button>
       )}
@@ -56,7 +64,7 @@ export function TemplateCountdown({ surprise }: Props) {
           animate={{ opacity: 1, scale: 1 }}
         >
           <p className="text-xs uppercase tracking-[0.22em] text-soft/70">
-            Revealing in
+          {t.revealingIn}
           </p>
           <motion.div
             key={seconds}
@@ -119,13 +127,13 @@ export function TemplateCountdown({ surprise }: Props) {
             </motion.div>
           )}
 
-          {surprise. music && (
+          {surprise.music && (
             <audio
               controls
               autoPlay
               className="mt-4 w-full rounded-full bg-black/40"
             >
-              <source src={surprise. music} />
+              <source src={surprise.music} />
             </audio>
           )}
 
@@ -134,11 +142,11 @@ export function TemplateCountdown({ surprise }: Props) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            This surprise was created with MyLoveQR ❤️
+            {t.createdWith}
           </motion.p>
           <div className="mt-2 flex justify-center">
             <PrimaryButton href="/create" className="px-4 py-2 text-xs">
-              Create your own
+            {t.createYourOwn}
             </PrimaryButton>
           </div>
         </motion.div>

@@ -110,26 +110,26 @@ export default function LandingPage() {
               </div>
 
               <div className="mb-4 rounded-2xl bg-black/40 p-3">
-                <p className="text-xs text-soft/80">Scan to unlock</p>
-                <p className="mt-1 text-sm font-medium text-soft">
-                  A message from{" "}
-                  <span className="text-soft/100">you</span> to{" "}
-                  <span className="text-soft/100">your person</span>.
-                </p>
+              <p className="text-xs text-soft/80">{t("scanUnlock")}</p>
+              <p className="mt-1 text-sm font-medium text-soft">
+              {t("previewMessage")}
+              </p>
               </div>
 
               <div className="mb-3 rounded-2xl bg-black/70 p-3 text-center">
                 <div className="mx-auto mb-2 h-28 w-28 rounded-2xl bg-gradient-to-br from-primary via-glow to-soft shadow-glow" />
                 <p className="text-xs text-soft/80">
-                  Preview of your glowing LoveQR.
+                {t("previewGlow")}
                 </p>
               </div>
 
               <div className="space-y-2 text-[11px] text-soft/70">
-                <p>• Love Card • Secret Love Chat • Countdown Surprise</p>
-                <p className="text-soft/60">
-                  Made for anniversaries, proposals, and everyday I-love-yous.
-                </p>
+              <p>
+               • {t("loveCard")} • {t("secretChat")} • {t("countdownSurprise")}
+              </p>
+              <p className="text-soft/60">
+              {t("madeForLove")}
+              </p>
               </div>
             </div>
           </div>
@@ -213,6 +213,7 @@ export default function LandingPage() {
             description="A glowing love letter with your photo, music, and soft heart particles."
             badge={<TemplateBadge label="Love Card (Free)" variant="free" />}
             accent="from-primary/80 to-glow/70"
+            href="/create?template=love-card"
           />
 
           {/* Secret Love Chat */}
@@ -223,6 +224,7 @@ export default function LandingPage() {
               <TemplateBadge label="Secret Love Chat (Premium)" variant="premium" />
             }
             accent="from-glow/80 to-soft/80"
+            href="/create?template=love-card"
           />
 
           {/* Countdown Surprise */}
@@ -236,6 +238,7 @@ export default function LandingPage() {
               />
             }
             accent="from-primary/70 via-glow/80 to-soft/80"
+            href="/create?template=love-card"
           />
         </div>
       </section>
@@ -328,14 +331,17 @@ function TemplateCard({
   title,
   description,
   badge,
-  accent
+  accent,
+  href
 }: {
   title: string;
   description: string;
   badge: React.ReactNode;
   accent: string;
+  href: string;
 }) {
   return (
+    <Link href={href}>
     <motion.div
       className="glass-card group flex flex-col justify-between border border-white/10 p-4 shadow-black/50"
       whileHover={{ y: -6, scale: 1.01 }}
@@ -356,6 +362,7 @@ function TemplateCard({
         className={`mt-4 h-1.5 w-full rounded-full bg-gradient-to-r ${accent} opacity-70 group-hover:opacity-100`}
       />
     </motion.div>
+    </Link>
   );
 }
 
