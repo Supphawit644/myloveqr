@@ -37,3 +37,20 @@ export function loadSurpriseFromLocalStorage(id: string): SurprisePayload | null
   }
 }
 
+export function createSurprise(data: Omit<SurprisePayload, "id" | "createdAt">) {
+  const id = generateId();
+
+  const payload: SurprisePayload = {
+    id,
+    createdAt: new Date().toISOString(),
+    ...data,
+  };
+
+  saveSurpriseToLocalStorage(payload);
+
+  return payload;
+}
+
+export function getSurprise(id: string) {
+  return loadSurpriseFromLocalStorage(id);
+}
