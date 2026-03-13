@@ -36,8 +36,8 @@ export async function POST(req: NextRequest) {
       message,
       template,
       passcode,
-      photoDataUrl,
-      musicDataUrl
+      photo: photoDataUrl,
+      music: musicDataUrl
     });
 
     return NextResponse.json({ id: record.id }, { status: 201 });
